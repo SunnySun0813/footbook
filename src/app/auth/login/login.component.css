@@ -1,0 +1,24 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  padding: 30px;
+  margin: 30px;
+}
+
+h1 {
+  color: #3B71CA;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px;
+}
+
+p {
+  color: red;
+}
+
+button {
+  margin-right: 20px;
+}

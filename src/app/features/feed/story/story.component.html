@@ -1,0 +1,45 @@
+<mat-card>
+  <h1>What Happen Recently?</h1>
+  <ng-container *ngIf="posts.length !== 0; else slot">
+    <mat-card *ngFor="let post of posts; let i = index" [ngStyle]="{'padding':'20px','margin':'20px'}">
+      <h5>{{post[1].date | pastTime}}</h5>
+      <div class="header">
+        <img [src]="post[1].avatar" [alt]="post[1].first + ' ' + post[1].last" [ngStyle]="{'width':'30px','height':'30px'}">
+        <span id="bigName">{{post[1].first + ' ' + post[1].last}}</span>
+      </div>
+      <br>
+      <!--problem? real time lost? -->
+      <!--problem? add avatar -->
+      <h3>{{post[1].content}}</h3>
+      <img *ngIf="post[1].image!==''" [src]="post[1].image" [alt]="post[1].content">
+      <br>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            {{'Comments (' + post[1].commentList.length + ')'}}
+          </mat-expansion-panel-header>
+          <div *ngFor="let comment of post[1].commentList; let j = index">
+            <div class="header">
+              <img [src]="comment.avatar" [alt]="comment.first + ' ' + comment.last" [ngStyle]="{'width':'20px','height':'20px'}">
+              <span id="smallName">{{comment.first + ' ' + comment.last}} : {{comment.content}}</span>
+            </div>
+            <br>
+            <br *ngIf="comment.commenter === user.email">
+            <mat-action-row *ngIf="comment.commenter === user.email">
+              <button mat-button color="warn" (click)="deleteComment(i,j)">DELETE</button>
+            </mat-action-row>
+          </div>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Comment" [(ngModel)]="post[0]">
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="addComment(i)">Comment</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card>
+  </ng-container>
+  <ng-template #slot>
+    <h1>No New Feed</h1>
+  </ng-template>
+</mat-card>
+
+

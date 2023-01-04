@@ -1,0 +1,17 @@
+<h1>Log in Your Account</h1>
+<mat-card>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput type="email" formControlName="email" placeholder="Your email">
+      <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">Missing email!</mat-error>
+      <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">Please valid email!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Your password">
+      <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">Missing password!</mat-error>
+    </mat-form-field>
+    <p>{{error}}</p>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!signupForm.valid">Submit</button>
+    <button mat-raised-button color="primary" (click)="onRegister()">New Account</button>
+  </form>
+</mat-card>

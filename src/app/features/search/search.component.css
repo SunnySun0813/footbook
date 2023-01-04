@@ -1,0 +1,31 @@
+.big {
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.small {
+  width: 18%;
+  padding: 10px;
+  margin:3px;
+}
+
+.small h2 {
+  text-align: center;
+}
+
+.small img {
+  margin-bottom: 10px;
+  max-height: 265px;
+}
+
+h1 {
+  color: #3B71CA;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px;
+}

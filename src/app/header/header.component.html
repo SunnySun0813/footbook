@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <div class="left">
+    <a [routerLink]="['/feed',user._id]" [ngStyle]="{'font-weight':'bold','font-size':'20px'}">FOOTBOOK</a>
+    <a [routerLink]="['/host',user._id]">{{user.first + ' ' + user.last}}</a>
+    <a [routerLink]="['/friend',user._id]">Friend</a>
+    <a [routerLink]="['/feed',user._id]">Feed</a>
+  </div>
+  <div class="right">
+    <input type="text" placeholder="Search people" [(ngModel)]="keyword">
+    <a (click)="search()">Search</a>
+    <a (click)="logout()">Log out</a>
+  </div>
+</mat-toolbar>
+

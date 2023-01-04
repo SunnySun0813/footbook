@@ -1,0 +1,43 @@
+mat-form-field {
+  width: 100%;
+}
+
+form {
+  width: 70%;
+  display: inline-block;
+}
+
+mat-card {
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h1 {
+  color: #3B71CA;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px;
+}
+
+button {
+  margin-right: 20px;
+}
+
+p {
+  color: red;
+}
+
+#avatarUpload {
+  width: 20%;
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+}
+
+

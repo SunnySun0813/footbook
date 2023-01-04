@@ -1,0 +1,28 @@
+<h1>New Request</h1>
+<mat-card class="big">
+  <ng-container *ngIf="response.length === 0; else slot">
+    <h1>No New friend Request</h1>
+  </ng-container>
+  <ng-template #slot>
+    <mat-card class="long" *ngFor="let item of response">
+      <h2>{{item.first + " "}}{{item.last}}</h2>
+      <div>
+        <img [src]="item.avatar" [alt]="item.first + ' ' + item.last">
+        <div>
+          <button mat-raised-button color="primary" (click)="accept(item.email)">Accept Request</button>
+          <button mat-raised-button color="accent" (click)="refuse(item.email)">Refuse Request</button>
+        </div>
+      </div>
+    </mat-card>
+  </ng-template>
+</mat-card>
+<h1>Your Friends</h1>
+<mat-card class="big">
+  <mat-card class="small" *ngFor="let item of friends">
+    <h2>{{item.first + " "}}{{item.last}}</h2>
+    <img [src]="item.avatar" [alt]="item.first + ' ' + item.last">
+    <button mat-raised-button color="primary">View Page</button>
+    <button mat-raised-button color="accent" (click)="deleteFriend(item.email)">Delete friend</button>
+  </mat-card>
+</mat-card>
+

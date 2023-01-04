@@ -1,0 +1,49 @@
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  padding: 30px;
+  margin: 60px;
+}
+
+h5 {
+  color: grey;
+}
+
+h1 {
+  color: #3B71CA;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px;
+}
+
+mat-action-row button {
+  margin: -15px;
+}
+
+#bigName {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+#smallName {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+
+

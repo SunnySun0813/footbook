@@ -1,0 +1,14 @@
+<mat-card>
+  <h1>New Post</h1>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <textarea matInput rows="6" name="content" ngModel required #content="ngModel" placeholder="Post Content"></textarea>
+      <mat-error *ngIf="content.invalid">Content is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput name="image" ngModel required minlength="3" #image="ngModel" placeholder="Post Image (optional)">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Post it</button>
+  </form>
+</mat-card>

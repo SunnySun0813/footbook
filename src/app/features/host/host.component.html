@@ -1,0 +1,66 @@
+<h1>Your Information</h1>
+<mat-card>
+
+  <mat-card [ngStyle]="{'padding':'30px 100px','margin':'20px'}">
+      <label for="email">Email:</label>
+      <input id="email" type="text" [(ngModel)]="user.email" [disabled]="editMode || !editMode">
+      <label for="first">First Name:</label>
+      <input id="first" type="text" [(ngModel)]="user.first" [disabled]="editMode">
+      <label for="last">Last Name:</label>
+      <input id="last" type="text" [(ngModel)]="user.last" [disabled]="editMode">
+      <label for="password">Password:</label>
+      <input id="password" type="password" [(ngModel)]="user.password" [disabled]="editMode">
+      <label for="comfirm" *ngIf="!editMode">Comfirmed Password:</label>
+      <input id="comfirm" type="password" [(ngModel)]="comfirm" [disabled]="editMode" *ngIf="!editMode">
+      <label for="avatar">Avatar's URL:</label>
+      <input id="avatar" type="text" [(ngModel)]="user.avatar" [disabled]="editMode">
+      <img [src]="user.avatar" [alt]="user.avatar" [ngStyle]="{'margin':'30px auto'}">
+      <ng-container *ngIf="editMode; else slot1">
+        <button mat-raised-button color="primary" (click)="startEdit()">Edit Information</button>
+      </ng-container>
+      <p [ngStyle]="{'color':'red','margin':'5px','text-align':'center'}">{{error}}</p>
+      <ng-template #slot1>
+        <button mat-raised-button color="primary" (click)="validation()">Save Information</button>
+      </ng-template>
+  </mat-card>
+</mat-card>
+
+<h1>Manage Your Posts</h1>
+<mat-card>
+  <ng-container *ngIf="user.postList.length !== 0; else slot2">
+    <mat-card *ngFor="let post of user.postList; let i = index" [ngStyle]="{'padding':'20px','margin':'20px'}">
+      <h5>{{post.date | pastTime}}</h5>
+      <div class="header">
+        <img [src]="post.avatar" [alt]="post.first + ' ' + post.last" [ngStyle]="{'width':'30px','height':'30px'}">
+        <span id="bigName">{{post.first + ' ' + post.last}}</span>
+      </div>
+      <br>
+      <h3>{{post.content}}</h3>
+      <img *ngIf="post.image!==''" [src]="post.image" [alt]="post.content">
+      <br>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            {{'Comments (' + post.commentList.length + ')'}}
+          </mat-expansion-panel-header>
+          <div *ngFor="let comment of post.commentList; let j = index">
+            <div class="header">
+              <img [src]="comment.avatar" [alt]="comment.first + ' ' + comment.last" [ngStyle]="{'width':'20px','height':'20px'}">
+              <span id="smallName">{{comment.first + ' ' + comment.last}} : {{comment.content}}</span>
+            </div>
+            <br>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <br>
+      <button mat-raised-button color="accent" (click)="deletePost(i)">Delete this post</button>
+    </mat-card>
+  </ng-container>
+  <ng-template #slot2>
+    <h1 [ngStyle]="{'color':'#3B71CA','font-weight':'bold','text-align':'center'}">No Post</h1>
+  </ng-template>
+</mat-card>
+
+
+
+

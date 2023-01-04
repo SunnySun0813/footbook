@@ -1,0 +1,42 @@
+<h1>Get New Account</h1>
+<mat-card>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput type="email" formControlName="email" placeholder="Your email">
+      <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">Missing email!</mat-error>
+      <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">Please valid email!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="first" placeholder="Your first name">
+      <mat-error *ngIf="signupForm.get('first')?.errors?.['required']">Missing first name!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="last" placeholder="Your last name">
+      <mat-error *ngIf="signupForm.get('last')?.errors?.['required']">Missing last name!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password1" placeholder="Your password">
+      <mat-error *ngIf="signupForm.get('password1')?.errors?.['required']">Missing password!</mat-error>
+      <mat-error *ngIf="signupForm.get('password1')?.errors?.['passwordIsForbidden']">Password's format is invalid!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password2" placeholder="Comfirm password">
+      <mat-error *ngIf="signupForm.get('password2')?.errors?.['required']">Missing confirm password!</mat-error>
+    </mat-form-field>
+    <p>{{error}}</p>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!signupForm.valid">Submit</button>
+    <button mat-raised-button color="primary" (click)="onLogin()">Already Have Account ?</button>
+  </form>
+  <div id="avatarUpload">
+    <mat-form-field>
+      <input matInput type="string" placeholder="Avatar URL(optional)" [(ngModel)]="imageBrowser">
+    </mat-form-field>
+    <img [src]="imageBrowser" [alt]="imageBrowser">
+  </div>
+</mat-card>
+
+
+
+
+
+

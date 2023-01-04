@@ -1,0 +1,16 @@
+mat-form-field, textarea {
+  width: 100%;
+}
+
+mat-card {
+  padding: 30px;
+  margin: 60px;
+}
+
+h1 {
+  color: #3B71CA;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px;
+}

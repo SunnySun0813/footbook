@@ -1,0 +1,56 @@
+.big {
+  padding: 30px;
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.small {
+  width: 18%;
+  padding: 10px;
+  margin:3px;
+}
+
+.small img {
+  max-height: 265px;
+}
+
+.long {
+  width: 30%;
+}
+
+.long div{
+  padding: 10px;
+  margin:3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.long div div {
+  display: flex;
+  flex-direction: column;
+}
+
+.long img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+}
+
+h1 {
+  color: #3B71CA;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 50px;
+}

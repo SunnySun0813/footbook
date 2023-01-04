@@ -1,0 +1,19 @@
+<h1>Search Result</h1>
+<mat-card class="big">
+  <ng-container *ngIf="list.length !== 0; else slot">
+    <mat-card class="small" *ngFor="let item of list">
+      <h2>{{item.first + " "}}{{item.last}}</h2>
+      <img [src]="item.avatar" [alt]="item.first + ' ' + item.last">
+      <ng-container *ngIf="!user.request.includes(item.email); else slot">
+        <button mat-raised-button color="primary" (click)="onRequest(item.email)">Add Friend</button>
+      </ng-container>
+      <ng-template #slot>
+        <button mat-raised-button color="primary" disabled="true">Request Sent</button>
+      </ng-template>
+    </mat-card>
+  </ng-container> 
+  <ng-template #slot>
+    <h1>No Result</h1>
+  </ng-template>
+</mat-card>
+

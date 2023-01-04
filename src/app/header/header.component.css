@@ -1,0 +1,27 @@
+a {
+  color:white;
+  text-decoration: none;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+input {
+  margin-right: 30px;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+a:visited {
+  color:white;
+  text-decoration: none;
+}
+
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: auto;
+  padding: 20px 10px;
+}
+
