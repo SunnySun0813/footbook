@@ -70,6 +70,19 @@ export class HttpService {
     return this.http.get<{message:boolean, user:any}>("http://localhost:3000/user/" + email);
   }
 
+  editUserInfo(user:any) {
+    this.http.put<{message:boolean}>("http://localhost:3000/user/" + user._id + '/' + user.email, user).subscribe(
+      (val)=>{
+        if (val.message) {
+          console.log("Successfully edited");
+        }
+        else {
+          console.log("Successfully failed");
+        }
+      }
+    );
+  }
+
   editUser(user:any) {
     this.http.put<{message:boolean}>("http://localhost:3000/user/" + user._id, user).subscribe(
       (val)=>{

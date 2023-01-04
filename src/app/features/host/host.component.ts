@@ -51,7 +51,7 @@ export class HostComponent {
     }
     this.editMode = !this.editMode;
     this.state.getLogginUser(this.user);
-    this.http.editUser(this.user);
+    this.http.editUserInfo(this.user);
 
     window.alert("Successful edited");
     this.router.navigate(['/host',this.user._id]);

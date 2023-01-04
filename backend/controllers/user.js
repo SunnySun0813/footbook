@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const jwt = require("jsonwebtoken");
 app.use(bodyParser.urlencoded({ extended: false }));
 
-exports.editUser = async function (req,res,next) {
+exports.editUserInfo = async function (req,res,next) {
   await User.findOneAndUpdate({_id:req.body._id},{
     first: req.body.first,
     last: req.body.last,
@@ -22,6 +22,21 @@ exports.editUser = async function (req,res,next) {
     const hashed = await bcrypt.hash(req.body.password, Number(process.env.SALT));
     await User.findOneAndUpdate({_id:req.body._id},{password: hashed});
   }
+  res.status(200).json({message: true});
+}
+
+exports.editUser = async function (req,res,next) {
+  await User.findOneAndUpdate({_id:req.body._id},{
+    first: req.body.first,
+    last: req.body.last,
+    email: req.body.email,
+    avatar: req.body.avatar,
+    friendList: req.body.friendList,
+    postList: req.body.postList,
+    request: req.body.request,
+    response: req.body.response
+  });
+
   res.status(200).json({message: true});
 }
 
